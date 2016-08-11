@@ -1,0 +1,13 @@
+*{
+	margin: 0;
+}
+
+@font-face {
+	font-family: 'Bitsumishi';
+	src: url('../fonts/BITSUMIS.TTF');
+}
+
+@font-face{
+	font-family: 'Britannic';
+	src: url('../fonts/BRITANIC.TTF');
+}

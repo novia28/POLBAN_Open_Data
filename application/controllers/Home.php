@@ -22,14 +22,13 @@ class Home extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url','html'));
 		$this->load->database();
-		$this->load->model('mread');
 	}
 	
 	public function index(){
+		$this->load->model('mread');
 		$data = array();
 		$data_kategori = array();
 		$data2 = array();
-		$data_jurusan = array();
 		
 		foreach ($this->mread->getChartData_Angkatan()->result_array() as $row){
 			$data[] = (int) $row['jumlah'];
@@ -38,25 +37,50 @@ class Home extends CI_Controller {
 		
 		foreach ($this->mread->getChartData_Jurusan()->result_array() as $rows){
 			$data2[] = (int) $rows['jumlah2'];
-			$data_jurusan[] = (int) $rows['ID_PRODI'];
-			
-			//$id[] = (int) $rows['ID_PRODI'];
+			$result = $this->mread->getJurusanAlumni();
 		}
 		
-		//for($i=0; $i<=$rows['ID_ALUMNI']; $i++){
-			//$prodi['show'] = $this->mread->getJurusan($id[$i]);
-			//echo $id[$i]."<br>";
-		//}
-		
-		$id = 15;
-		$prodi['show'] = $this->mread->getJurusan($id);
-		
-		$this->load->view('home', $prodi);
+		$this->load->view('menu_header');
+		$this->load->view('home', array('result'=>$result));
 		$this->load->view('home_chart', array(
 			'data'=>$data, 
 			'data_kategori'=>$data_kategori, 
 			'data2'=>$data2, 
-			'data_jurusan'=>$data_jurusan)
+		)
 		);
+		$this->load->view('footer');
+	}
+	
+	public function about(){
+		$this->load->view('menu_header');
+		$this->load->view('about');
+		$this->load->view('footer');
+	}
+	
+	public function chart(){
+		$this->load->model('mread');
+		$data = array();
+		$data_kategori = array();
+		$data2 = array();
+		
+		foreach ($this->mread->getChartData_Angkatan()->result_array() as $row){
+			$data[] = (int) $row['jumlah'];
+			$data_kategori[] = (int) $row['TAHUN_MASUK'];
+		}
+		
+		foreach ($this->mread->getChartData_Jurusan()->result_array() as $rows){
+			$data2[] = (int) $rows['jumlah2'];
+			$result = $this->mread->getJurusanAlumni();
+		}
+		
+		$this->load->view('menu_header');
+		$this->load->view('chart', array('result'=>$result));
+		$this->load->view('home_chart', array(
+			'data'=>$data, 
+			'data_kategori'=>$data_kategori, 
+			'data2'=>$data2, 
+		)
+		);
+		$this->load->view('footer');
 	}
 }

@@ -1,9 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
-        <!--<div id="chart"></div>
-		<div id="chart_jurusan"></div>-->
- 
 <script type="text/javascript" src="<?php echo base_url('/assets/jquery-1.7.2.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('/assets/highcharts/highcharts.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('/assets/highcharts/modules/exporting.js'); ?>"></script>
@@ -52,8 +49,8 @@ jQuery(function(){
         },
         xAxis: {
 			categories: [
-			<?php foreach($show as $p){ ?>
-				'<?php echo $p->NAMA_PRODI; ?>',
+			<?php foreach($result as $p){ ?>
+				'<?php echo $p->NAMA_JURUSAN; ?>',
 			<?php } ?>]
         },
         yAxis: {

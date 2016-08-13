@@ -11,3 +11,11 @@
 	font-family: 'Britannic';
 	src: url('../fonts/BRITANIC.TTF');
 }
+
+.btn-anchor a{
+	color: #fff!important;
+}
+
+.btn-anchor a:hover{
+	text-decoration: none;
+}

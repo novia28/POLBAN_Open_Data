@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 11, 2016 at 11:22 AM
+-- Generation Time: Aug 13, 2016 at 11:09 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -47,9 +47,21 @@ CREATE TABLE IF NOT EXISTS `alumni` (
 --
 
 INSERT INTO `alumni` (`ID_ALUMNI`, `ID_PRODI`, `NAMA_ALUMNI`, `TAHUN_MASUK`, `TAHUN_KELUAR`, `EMAIL_ALUMNI`, `NO_HP`, `ALAMAT_ALUMNI`, `PEKERJAAN`, `USERNAME`, `PASSWORD`) VALUES
-(0, 8, 'Mutiara Trie Aprilian', 2015, 2018, 'mutiara.trie.tif15@polban.ac.id', '02389203', 'Cililin', 'Sistem Analis', 'mutiara.tr', 'localhost'),
+(0, 1, 'Mutiara Trie Aprilian', 2015, 2018, 'mutiara.trie.tif15@polban.ac.id', '02389203', 'Cililin', 'Sistem Analis', 'mutiara.tr', 'localhost'),
 (1, 15, 'Novia Sukmasari Putri', 2015, 2018, 'sukmasarin@gmail.com', '089609391875', 'Komp. Gumil Jl. Panorama 5 No.1 RT 06/05 Desa Sariwangi, Kecamatan Parongpong, Kabupaten Bandung Barat', 'Software Engineer', 'novia28', 'localhost'),
-(2, 15, 'Nita Amelia Wijaya', 2016, 2019, 'nita.amelia.tif16@polban.ac.id', '089609391877', 'Teuing', 'Web Developer', 'nita_ameli', 'localhost');
+(2, 15, 'Nita Amelia Wijaya', 2016, 2019, 'nita.amelia.tif16@polban.ac.id', '089609391877', 'Teuing', 'Web Developer', 'nita_ameli', 'localhost'),
+(3, 16, 'Reka Alamsyah', 2016, 2020, 'reka.alamsyah.tif415@polban.ac.id', '082214283112', 'Antapani', 'Programmer', 'rekaas', 'localhost'),
+(4, 16, 'Rifa Azizah', 2016, 2020, 'rifa.azizah.tif415@polban.ac.id', '08997532192', 'Cimahi', 'Web Developer', 'rifaaz', 'localhost'),
+(5, 15, 'Nada Dwi Nurafifah', 2015, 2018, 'nada.dwi.tif15@polban.ac.id', '082213120429', 'Jakarta', 'Analisis Program', 'nadadwi', 'localhost'),
+(6, 15, 'Syifana Nurahmi', 2015, 2018, 'syifana.nurahmi.tif15@polban.ac.id', '081224469070', 'Subang', 'Web Developer', 'syifana', 'localhost'),
+(7, 15, 'Nur Rachmatika', 2016, 2019, 'nur.rachmatika.tif15@polban.ac.id', '081223912705', 'Cikadut', 'Analisis Program', 'nurrachma', 'localhost'),
+(8, 15, 'Lulu Luthfiyatul', 2015, 2019, 'lulu.luthfiyatul.tif15@polban.ac.id', '089765432123', 'Bandung', 'Programmer', 'lululuth', 'localhost'),
+(9, 1, 'Sarah Zafira', 2013, 2016, 'sarah.zafira.tif13@polban.ac.id', '081234567898', 'Tasikmalaya', 'Programmer', 'sarahzaf', 'localhost'),
+(10, 10, 'Muhammad Rizal', 2013, 2016, 'muhammad.rizal.tif13@polban.ac.id', '087654321234', 'Cimahi', 'Web Developer', 'muhrizal', 'localhost'),
+(11, 18, 'Nanda Maulida Agustin', 2014, 2017, 'nanda.maulida.tif14@polban.ac.id', '08887654312', 'Cikampek', 'Analisis Program', 'nandama', 'localhost'),
+(12, 33, 'Siska Seliani', 2014, 2017, 'siska.seliani.tif14@polban.ac.id', '085432123452', 'Garut', 'Programmer', 'sisel', 'localhost'),
+(13, 18, 'Hanna Hapfifah', 2014, 2017, 'hanna.hapfifah.tif14@polban.ac.id', '089627364598', 'Cimahi', 'Programmer', 'hannahap', 'localhost'),
+(14, 16, 'Prasetyo Trimukti Setiko', 2014, 2018, 'prasetyo.trimukti.tif14@polban.ac.id', '087654312345', 'Bandung', 'Game Developer', 'prasetyo', 'localhost');
 
 -- --------------------------------------------------------
 
@@ -199,8 +211,8 @@ ALTER TABLE `alumni`
 -- Constraints for table `bekerja`
 --
 ALTER TABLE `bekerja`
-  ADD CONSTRAINT `FK_DITEMPATI_KERJA` FOREIGN KEY (`ID_PERUSAHAAN`) REFERENCES `perusahaan` (`ID_PERUSAHAAN`),
-  ADD CONSTRAINT `FK_BEKERJA_DI` FOREIGN KEY (`ID_ALUMNI`) REFERENCES `alumni` (`ID_ALUMNI`);
+  ADD CONSTRAINT `FK_BEKERJA_DI` FOREIGN KEY (`ID_ALUMNI`) REFERENCES `alumni` (`ID_ALUMNI`),
+  ADD CONSTRAINT `FK_DITEMPATI_KERJA` FOREIGN KEY (`ID_PERUSAHAAN`) REFERENCES `perusahaan` (`ID_PERUSAHAAN`);
 
 --
 -- Constraints for table `program_studi`

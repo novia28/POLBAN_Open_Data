@@ -13,21 +13,22 @@ class Mread extends CI_Model{
 		return $query;
     }
 	
-	public function getChartData_Jurusan(){	
-		$query = $this->db->query('SELECT *, COUNT(*) as jumlah2 FROM alumni GROUP BY ID_PRODI');
-		return $query;
+	public function getChartData_Jurusan(){
+		$query = "SELECT *, COUNT(*) as jumlah2 FROM alumni
+				  INNER JOIN program_studi ON alumni.ID_PRODI = program_studi.ID_PRODI 
+				  INNER JOIN jurusan ON program_studi.ID_JURUSAN = jurusan.ID_JURUSAN
+				  GROUP BY program_studi.ID_JURUSAN";
+		$sql = $this->db->query($query);
+		return $sql;
     }
 	
-	public function getJurusan($id){
+	public function getJurusanAlumni(){
+		$query = "SELECT * FROM alumni 
+				  INNER JOIN program_studi ON alumni.ID_PRODI = program_studi.ID_PRODI 
+				  INNER JOIN jurusan ON program_studi.ID_JURUSAN = jurusan.ID_JURUSAN
+				  GROUP BY program_studi.ID_JURUSAN";
 		
-		//$query = $this->db->query("SELECT * FROM program_studi WHERE ID_PRODI='$id'");
-		//return $query;
-		
-		$this->db->select('*');
-		$this->db->from('program_studi');
-		$this->db->where('ID_PRODI', $id);
-		$query = $this->db->get();
-		$result = $query->result();
-		return $result;
+		$sql = $this->db->query($query);
+		return $sql->result();
 	}
 }

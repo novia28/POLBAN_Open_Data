@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<title>POLBAN Open Data</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/style.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/bootstrap.min.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/bootstrap.css'); ?>">
@@ -13,24 +13,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 </head>
 <body>
-
-<!-- MENU HEADER -->
-<nav class="navbar navbar-default" style="box-shadow: 0px -5px 10px #000000; margin-bottom: 2px">
-  <div class="container-fluid">
-    <div class="container">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="#" style="height: 110px!important;"><img src="<?php echo base_url('/assets/img/logo_polban.png'); ?>" width="70px" align="left" style="margin-right: 5px;" /></a>
-		<a class="navbar-brand" href="#" style="text-align: center; margin-top: 20px;">POLBAN</br>OPEN DATA</a>
-    </div>
-    <ul class="nav navbar-nav navbar-right" style="margin-top: 30px;">
-      <li><a href="#">About Open Data</a></li>
-      <li><a href="#">Charts</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </div>
-  </div>
-</nav>
-
 <!-- BODY -->
 <!-- HEAD BODY -->
 <div class="container-fluid" style="background-image: url('<?php echo base_url('/assets/img/polban.jpg'); ?>');">
@@ -40,7 +22,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<h1 style="color: #FFFFFF; font-family: 'Britannic'; font-size: 30pt; margin-top: -10px;"> POLBAN OPEN DATA </h1>
 			<hr style="margin-top: -3px">
 			<p style="color: #FFFFFF"><strong>Deskripsi singkat..</strong><br><br><br><br><br><br><br><br><br><br><br><br></p>
-			<button type="button" class="btn btn-primary pull-right" style="border-radius: 10px; width: 150px"><strong>Lihat Data</strong></button>
+			<span class="btn btn-primary btn-anchor pull-right" style="border-radius: 10px; width: 150px; font-weight: bold;">
+				<?php echo anchor('home/chart', 'Lihat Data', 'title=""'); ?>
+			</span>
 		</div>
 	</div>
 </div>
@@ -87,7 +71,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div id="chart_jurusan"></div>
 		</div>
 		<div class="col-md-12 text-center">
-			<button class="btn btn-primary" style="margin: 50px 0px 50px 0px;">Lihat Data Selengkapnya</button>
+			<span class="btn btn-primary btn-anchor" style="margin: 50px 0px 50px 0px;">
+			<?php echo anchor('home/chart', 'Lihat Data Selengkapnya', 'title=""'); ?>
+			</span>
+			
 		</div>
 	</div>
 </div>
@@ -115,15 +102,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<span style="font-size:13pt!important"><strong>Kangjun</strong></span><br>
 			<span style="font-size:10pt!important">(Jabatan, Angkatan)</span><br><br><br><br>
 			<blockquote style="border-left: 5px solid gray; font-size:13pt; font-stretch:condensed; font-style:italic">Isi testimonial.. </blockquote>
-		</div>
-	</div>
-</div>
-
-<!-- FOOTER -->
-<div class="container-fluid" style="background-color: #212121">
-	<div class="container">
-		<div class="col-md-12" style="padding: 20px 20px 20px 0px; color: #fff">
-			<span class="pull-right">Copyright &copy; 2016 POLBAN OPEN DATA</span>
 		</div>
 	</div>
 </div>
